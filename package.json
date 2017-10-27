@@ -1,0 +1,23 @@
+{
+  "name": "mean-contacts-app",
+  "version": "1.0.0",
+  "description": "One mean contacts app - uses MongoDB, Express.js, Angular.js, Node.js.",
+  "main": "server.js",
+  "scripts": {
+    "test": "mocha",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/farhadahmed/mean-contacts-app.git"
+  },
+  "author": "Farhad K. Ahmed",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/farhadahmed/mean-contacts-app/issues"
+  },
+  "homepage": "https://github.com/farhadahmed/mean-contacts-app#readme",
+  "dependencies": {
+    "express": "^4.16.2"
+  }
+}
