@@ -1,25 +1,31 @@
 <!DOCTYPE html>
+<!-- <html ng-app="contactsApp"> -->
 <html ng-app="contactsApp">
 <head>
 	<meta charset="UTF-8">
 	<title>Contacts</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
 </head>
 <body>
 	<h1>Contacts</h1>
-	<div ng-controller="mainController">
+	<button>New Contact</button>
+	<button>View Contacts</button>
+ 	<div>
 		<form>
-			<label>First name:</label>
-			<input type="text">
-			<label>Last name:</label>
-			<input type="text">
-			<label>Phone:</label>
-			<input type="number">
-
+			<input type="text" placeholder="First Name" ng-model="firstName">
+			<input type="text" placeholder="Last Name" ng-model="lastName">
+			<input type="number" placeholder="Phone" ng-model="phoneNumber">
 			<button type="submit">Enter</button>
 		</form>
+	</div> 
+	<div ng-controller="mainController">
+		<ul>
+			<li ng-repeat="contact in contacts">{{contact}}</li>
+		</ul>
 	</div>
 
-	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.min.js"></script>
-	<script type="text/javascript" src="script.js"></script>
+	<script type="text/javascript" src="js/script.js"></script>
 </body>
 </html>
+
+

@@ -3,6 +3,11 @@
 // provide access to Angular.js features.
 var contactsApp = angular.module('contactsApp', []);
 
-contactsApp.controller('mainController', function() {
+contactsApp.controller('mainController', function($scope) {
+	$scope.contacts = [
+		'Sherlock Holmes', 
+		'Gregory House', 
+		'Leonard Nemoy'
+	];
 
 });
