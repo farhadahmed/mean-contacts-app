@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<!-- <html ng-app="contactsApp"> -->
+<html ng-app="contactsApp">
+<head>
+	<meta charset="UTF-8">
+	<title>Contacts</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+</head>
+<body ng-controller="mainController">
+	<h1>Contacts</h1>
+	<button>New Contact</button>
+	<button>View Contacts</button>
+ 	<div>
+		<form ng-submit="addContact()">
+			<!-- ng-model is used to bind input values to an AngularJS variable -->
+			<input type="text" placeholder="First Name" ng-model="firstname" required>
+			<input type="text" placeholder="Middle Name" ng-model="middlename">
+			<input type="text" placeholder="Last Name" ng-model="lastname" required>
+			<input type="text" placeholder="Phone" ng-model="phoneNumber">
+			<input type="text" placeholder="Email" ng-model="email">
+			<button type="submit">Enter</button>
+			<!-- <button ng-click="addContact()">Enter</button> -->
+		</form>
+	</div> 
+	<div>
+		<ul>
+			<li ng-repeat="contact in contacts | orderBy: 'name'">{{contact.firstname}} {{contact.middlename}} 
+				{{contact.lastname}} | {{contact.phone}} | {{contact.email}}</li>
+		</ul>
+	</div>
+
+	<script type="text/javascript" src="js/script.js"></script>
+</body>
+</html>
+
+
