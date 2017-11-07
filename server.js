@@ -12,6 +12,9 @@ app.get('/', function(req, res) {
 
 app.get('/contacts', function(req, res) {
 
+	// I've moved our dummy data out of our angular controller into
+	// a server response. This dummy data will be used to populate 
+	// the contacts table
 	var contacts = [
 		{firstname: 'Sherlock', middlename: '', lastname: 'Holmes', phone: '444-4444', email: 'holmes@bakerstreet.com'},
 		{firstname: 'Gregory', middlename: '', lastname: 'House', phone: '333-3333', email: 'housemd@itsnotlupus.com'},
@@ -28,5 +31,5 @@ app.get('/contacts', function(req, res) {
 // });
 
 app.listen(port, function() {
-  console.log('server running on port' + port);
+  console.log('server running on port ' + port);
 });

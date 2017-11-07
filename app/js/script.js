@@ -3,7 +3,7 @@
 var contactsApp = angular.module('contactsApp', []);
 
 
-// The controller will have two purposes: 1) to store existing contact objects and 2) use form 
+// The controller will have two purposes: 1) send request to http server for contact data 2) use form 
 // input to create new contacts
 contactsApp.controller('mainController', function($scope, $http) {
 
