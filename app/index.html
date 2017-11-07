@@ -33,12 +33,14 @@
 						<th>Phone</th>
 						<th>Email</th>
 					</tr>
+				</thead>
+				<tbody>
 					<tr ng-repeat="contact in contacts | orderBy: 'firstname'">
 						<td>{{contact.firstname}} {{contact.middlename}} {{contact.lastname}}</td>
 						<td>{{contact.phone}}</td>
 						<td>{{contact.email}}</td>
 					</tr>
-				</thead>
+				</tbody>
 			</table>
 
 		</div>

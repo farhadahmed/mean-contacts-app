@@ -7,8 +7,11 @@ var contactsApp = angular.module('contactsApp', []);
 // input to create new contacts
 contactsApp.controller('mainController', function($scope, $http) {
 
+	// Retrieve contact data from server
 	$http.get('/contacts').then(function(response) {
 		console.log('Requested data being received from http server.');
+
+		// $scope allows us to use the contacts variable in the html file.
 		$scope.contacts = response.data;
 	});
 
