@@ -5,13 +5,12 @@ var contactsApp = angular.module('contactsApp', []);
 
 // The controller will have two purposes: 1) to store existing contact objects and 2) use form 
 // input to create new contacts
-contactsApp.controller('mainController', function($scope) {
-	$scope.contacts = [
-		{firstname: 'Sherlock', middlename: '', lastname: 'Holmes', phone: '444-4444', email: 'holmes@bakerstreet.com'},
-		{firstname: 'Gregory', middlename: '', lastname: 'House', phone: '333-3333', email: 'housemd@itsnotlupus.com'},
-		{firstname: 'James', middlename: 'T.', lastname: 'Kirk', phone: '222-2222', email: 'youropinion@mrspock.com'},
-		{firstname: 'Tyrion', middlename: '', lastname: 'Lannister', phone: '444-5555', email: 'idrinkandiknowthings@got.com'}
-	];
+contactsApp.controller('mainController', function($scope, $http) {
+
+	$http.get('/contacts').then(function(response) {
+		console.log('Requested data being received from http server.');
+		$scope.contacts = response.data;
+	});
 
 	// ng-model from our html file will bind the input values to our AngularJS variables
 	$scope.addContact = function() {
