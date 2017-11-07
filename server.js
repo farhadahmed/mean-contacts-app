@@ -12,7 +12,9 @@ app.get('/', function(req, res) {
 
 app.get('/contacts', function(req, res) {
 
-	// I've moved our dummy data out of our angular controller into
+	console.log('Server received a GET request for contacts data');
+
+	// I've moved the dummy data out of the angular controller into
 	// a server response. This dummy data will be used to populate 
 	// the contacts table
 	var contacts = [
@@ -22,6 +24,7 @@ app.get('/contacts', function(req, res) {
 		{firstname: 'Tyrion', middlename: '', lastname: 'Lannister', phone: '444-5555', email: 'idrinkandiknowthings@got.com'}
 	];
 
+	// response in json format.
 	res.json(contacts);
 
 });
