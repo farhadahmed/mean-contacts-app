@@ -15,8 +15,9 @@ contactsApp.controller('mainController', function($scope, $http) {
 
 	// ng-model from our html file will bind the input values to our AngularJS variables.
 	$scope.addContact = function() {
-		$scope.contacts.push({firstname: $scope.firstname, middlename: $scope.middlename, lastname: $scope.lastname, 
-			phone: $scope.phoneNumber, email: $scope.email});
+		// $scope.contacts.push({firstname: $scope.firstname, middlename: $scope.middlename, lastname: $scope.lastname, 
+		// 	phone: $scope.phoneNumber, email: $scope.email});
+		console.log($scope.contact);
 
 		// clear input boxes
 		$scope.firstname = '';
