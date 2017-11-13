@@ -9,6 +9,8 @@ var port = process.env.PORT || 3000;
 
 // THe /app directory is the location of the static assets for the server to use.
 app.use(express.static(__dirname + '/app'));
+// Parse json
+app.use(bodyParser.json());
 
 // Create endpoint to retrieve contacts data
 app.get('/contacts', function (req, res) {
@@ -24,7 +26,8 @@ app.get('/contacts', function (req, res) {
 });
 
 app.post('/contacts', function (req, res) {
-	console.log(res.body);
+	// should log inputs in terminal as json
+	console.log(req.body);
 });
 
 // app.use(function(req, res, next) {

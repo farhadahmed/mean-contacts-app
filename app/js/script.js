@@ -23,11 +23,11 @@ contactsApp.controller('mainController', function($scope, $http) {
 		$http.post('/contacts', $scope.contact);
 
 		// clear input boxes
-		$scope.contact.firstname = '';
-		$scope.contact.middlename = '';
-		$scope.contact.lastname = '';
-		$scope.contact.phoneNumber = '';
-		$scope.contact.email = '';
+		// $scope.contact.firstname = '';
+		// $scope.contact.middlename = '';
+		// $scope.contact.lastname = '';
+		// $scope.contact.phoneNumber = '';
+		// $scope.contact.email = '';
 
 	}
 
