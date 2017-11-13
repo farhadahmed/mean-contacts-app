@@ -1,6 +1,6 @@
 {
   "name": "mean-contacts-app",
-  "version": "1.0.0",
+  "version": "0.0.9",
   "description": "One mean contacts app - uses MongoDB, Express.js, Angular.js, Node.js.",
   "main": "server.js",
   "scripts": {

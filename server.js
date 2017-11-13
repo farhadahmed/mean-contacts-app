@@ -2,30 +2,23 @@
 
 var express = require('express');
 var app = express();
+var mongojs = require('mongojs');
+var db = mongojs('meancontactsapp', ['meancontactsapp']);
 var port = process.env.PORT || 3000;
 
+// THe /app directory is the location of the static assets for the server to use.
 app.use(express.static(__dirname + '/app'));
 
-app.get('/', function(req, res) {
-  res.status(500).sendFile(__dirname + '/app/index.html');
-});
-
-app.get('/contacts', function(req, res) {
+// Create endpoint to retrieve contacts data
+app.get('/contacts', function (req, res) {
 
 	console.log('Server received a GET request for contacts data');
 
-	// I've moved the dummy data out of the angular controller into
-	// a server response. This dummy data will be used to populate 
-	// the contacts table
-	var contacts = [
-		{firstname: 'Sherlock', middlename: '', lastname: 'Holmes', phone: '444-4444', email: 'holmes@bakerstreet.com'},
-		{firstname: 'Gregory', middlename: '', lastname: 'House', phone: '333-3333', email: 'housemd@itsnotlupus.com'},
-		{firstname: 'James', middlename: 'T.', lastname: 'Kirk', phone: '222-2222', email: 'youropinion@mrspock.com'},
-		{firstname: 'Tyrion', middlename: '', lastname: 'Lannister', phone: '444-5555', email: 'idrinkandiknowthings@got.com'}
-	];
-
-	// response in json format.
-	res.json(contacts);
+	//grab test data inside of our database
+	db.meancontactsapp.find(function (err, docs) {
+		console.log(docs);
+		res.json(docs);
+	});
 
 });
 

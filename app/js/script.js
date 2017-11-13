@@ -2,16 +2,14 @@
 // HTML document. They also provide access to Angular.js features.
 var contactsApp = angular.module('contactsApp', []);
 
-
-// The controller will have two purposes: 1) send request to http server for contact data 2) use form 
-// input to create new contacts.
+// The controller will have two purposes: 
+// 		1) send request to http server for contact data 
+//		2) use form input to create new contacts.
 contactsApp.controller('mainController', function($scope, $http) {
 
 	// Retrieve contact data from server. '/contacts' is the route that we'll get the data from.
 	$http.get('/contacts').then(function(response) {
-		console.log('Requested data being received from http server.');
-
-		// $scope allows us to use the contacts variable in the html file and loads the data into browser.
+		// $scope allows us to use this contacts variable in the html file and loads the data into browser.
 		$scope.contacts = response.data;
 	});
 
