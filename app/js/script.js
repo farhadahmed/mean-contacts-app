@@ -9,7 +9,7 @@ contactsApp.controller('mainController', function($scope, $http) {
 
 	// Retrieve contact data from server. '/contacts' is the route that we'll get the data from.
 	$http.get('/contacts').then(function(response) {
-		// $scope allows us to use the contacts variable in the html file and loads the data into browser.
+		// $scope allows us to use this contacts variable in the html file and loads the data into browser.
 		$scope.contacts = response.data;
 	});
 

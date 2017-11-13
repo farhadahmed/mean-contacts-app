@@ -16,7 +16,6 @@ app.get('/contacts', function (req, res) {
 
 	//grab test data inside of our database
 	db.meancontactsapp.find(function (err, docs) {
-
 		console.log(docs);
 		res.json(docs);
 	});
