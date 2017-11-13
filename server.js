@@ -4,6 +4,7 @@ var express = require('express');
 var app = express();
 var mongojs = require('mongojs');
 var db = mongojs('meancontactsapp', ['meancontactsapp']);
+var bodyParser = require('body-parser');
 var port = process.env.PORT || 3000;
 
 // THe /app directory is the location of the static assets for the server to use.
@@ -20,6 +21,10 @@ app.get('/contacts', function (req, res) {
 		res.json(docs);
 	});
 
+});
+
+app.post('/contacts', function (req, res) {
+	console.log(res.body);
 });
 
 // app.use(function(req, res, next) {
