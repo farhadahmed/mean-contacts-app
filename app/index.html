@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- <html ng-app="contactsApp"> -->
+
 <html ng-app="contactsApp">
 <head>
 	<meta charset="UTF-8">
@@ -43,7 +43,7 @@
 					<!-- $scope in the controller allows us to access contact variable and its properties -->
 					<tr ng-repeat="contact in contacts | orderBy: 'firstname'">
 						<td>{{contact.firstname}} {{contact.middlename}} {{contact.lastname}}</td>
-						<td>{{contact.phone}}</td>
+						<td>{{contact.phoneNumber}}</td>
 						<td>{{contact.email}}</td>
 					</tr>
 				</tbody>

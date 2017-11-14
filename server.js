@@ -28,6 +28,9 @@ app.get('/contacts', function (req, res) {
 app.post('/contacts', function (req, res) {
 	// should log inputs in terminal as json
 	console.log(req.body);
+	db.meancontactsapp.insert(req.body, function(err, doc) {
+		res.json(doc);
+	});
 });
 
 // app.use(function(req, res, next) {
