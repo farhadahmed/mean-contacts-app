@@ -33,7 +33,7 @@ app.post('/contacts', function (req, res) {
 	});
 });
 
-// app.use(function(req, res, next) {
+// app.use(function (req, res, next) {
 //   res.status(404).sendFile(__dirname + '/app/404.html');
 // });
 
