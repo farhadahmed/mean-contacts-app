@@ -2,29 +2,35 @@
 // HTML document. They also provide access to Angular.js features.
 var contactsApp = angular.module('contactsApp', []);
 
-// The controller will have two purposes: 
-// 		1) send request to http server for contact data 
-//		2) use form input to create new contacts.
-contactsApp.controller('mainController', function($scope, $http) {
+// The controller has two purposes: 
+// 		1) send get request to http server to retrieve contact data 
+//		2) on form submission, send post request to http server to create a new contact.
+contactsApp.controller('mainController', function ($scope, $http) {
 
-	// Retrieve contact data from server. '/contacts' is the route that we'll get the data from.
-	$http.get('/contacts').then(function(response) {
-		// $scope allows us to use this contacts variable in the html file and loads the data into browser.
-		$scope.contacts = response.data;
-	});
+	var retrieveContacts = function () {
+		// Retrieve contact data from server. '/contacts' is the route that we'll get the data from.
+		$http.get('/contacts').then(function (response) {
+			// $scope allows us to use this contacts variable in the html file and loads the data into browser.
+			$scope.contacts = response.data;
+		});
+	}
 
-	// ng-model from our html file will bind the input values to our AngularJS variables.
-	$scope.addContact = function() {
-		$scope.contacts.push({firstname: $scope.firstname, middlename: $scope.middlename, lastname: $scope.lastname, 
-			phone: $scope.phoneNumber, email: $scope.email});
+	retrieveContacts();
 
-		// clear input boxes
-		$scope.firstname = '';
-		$scope.middlename = '';
-		$scope.lastname = '';
-		$scope.phoneNumber = '';
-		$scope.email = '';
+	// ng-model from the html's form inputs will bind the input values to the AngularJS variables.
+	$scope.addContact = function () {
+		console.log($scope.contact);
 
+		// Send the new contact's properties to server as a post
+		$http.post('/contacts', $scope.contact).then(function (response) {
+			console.log(response);
+
+			// This will retreive existing contacts by pulling form the /contacts endpoint so that
+			// the newly added contact appears in the table.
+			retrieveContacts();
+			// This will empty the input boxes.
+			$scope.contact = "";
+		});
 	}
 
 });

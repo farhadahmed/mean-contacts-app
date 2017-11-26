@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- <html ng-app="contactsApp"> -->
+
 <html ng-app="contactsApp">
 <head>
 	<meta charset="UTF-8">
@@ -21,12 +21,12 @@
  		<div>
 			<form>
 				<!-- ng-model is used to bind input values to an AngularJS variable -->
-				<input type="text" placeholder="First Name" ng-model="firstname" required>
-				<input type="text" placeholder="Middle Name" ng-model="middlename">
-				<input type="text" placeholder="Last Name" ng-model="lastname" required>
-				<input type="text" placeholder="Phone" ng-model="phoneNumber">
-				<input type="text" placeholder="Email" ng-model="email">
-				<button type="submit">Enter</button>
+				<input type="text" placeholder="First Name" ng-model="contact.firstname" required>
+				<input type="text" placeholder="Middle Name" ng-model="contact.middlename">
+				<input type="text" placeholder="Last Name" ng-model="contact.lastname" required>
+				<input type="text" placeholder="Phone" ng-model="contact.phoneNumber">
+				<input type="text" placeholder="Email" ng-model="contact.email">
+				<button type="submit">Add contact</button>
 			</form>
 		</div>
 		<div>
@@ -43,7 +43,7 @@
 					<!-- $scope in the controller allows us to access contact variable and its properties -->
 					<tr ng-repeat="contact in contacts | orderBy: 'firstname'">
 						<td>{{contact.firstname}} {{contact.middlename}} {{contact.lastname}}</td>
-						<td>{{contact.phone}}</td>
+						<td>{{contact.phoneNumber}}</td>
 						<td>{{contact.email}}</td>
 					</tr>
 				</tbody>
