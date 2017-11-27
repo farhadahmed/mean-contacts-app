@@ -2,9 +2,15 @@
 // HTML document. They also provide access to Angular.js features.
 var contactsApp = angular.module('contactsApp', []);
 
-// The controller has two purposes: 
-// 		1) send get request to http server to retrieve contact data 
-//		2) on form submission, send post request to http server to create a new contact.
+// The controller has 3 features: 
+// 		1) send get request to http server to retrieve existing contacts 
+//		2) on form submission:
+//			a) send post request to http server to create a new contact
+//			b) send get request to show updated data
+//			c) clear input boxes
+//		3) when remove button is clicked 
+//			a) send delete request to http server
+//			b) send get request to retrieve updated info.
 contactsApp.controller('mainController', function ($scope, $http) {
 
 	function clearInputs() {
