@@ -13,8 +13,8 @@
 		<h1>Contacts</h1>
 
 		<br>
-		<button>New Contact</button>
-		<button>View Contacts</button>
+		<!-- <button>New Contact</button>
+		<button>View Contacts</button> -->
 		<br>
 		<br>
 
@@ -26,9 +26,12 @@
 				<input type="text" placeholder="Last Name" ng-model="contact.lastname" required>
 				<input type="text" placeholder="Phone" ng-model="contact.phoneNumber">
 				<input type="text" placeholder="Email" ng-model="contact.email">
-				<button type="submit">Add contact</button>
+				<button type="submit" class="btn btn-info">Add contact</button>
 			</form>
 		</div>
+
+		<br>
+
 		<div>
 
 			<table class="table">
@@ -45,6 +48,7 @@
 						<td>{{contact.firstname}} {{contact.middlename}} {{contact.lastname}}</td>
 						<td>{{contact.phoneNumber}}</td>
 						<td>{{contact.email}}</td>
+						<td><button class="btn btn-info" ng-click="deleteContact(contact._id)">Remove</button></td>
 					</tr>
 				</tbody>
 			</table>
